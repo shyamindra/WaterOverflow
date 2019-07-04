@@ -2,6 +2,7 @@ package com.plexus.glass;
 
 import com.plexus.exceptions.LiquidOverFlowException;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -31,6 +32,13 @@ public class GlassTest
         IGlass glass = new Glass(100);
         glass.addLiquid(100);
         assertEquals(0, glass.getRemainingVolume());
+    }
+
+    @Test
+    void testFilledVolume(){
+        IGlass glass = new Glass(100);
+        glass.addLiquid(100);
+        assertEquals(100, glass.getFilledVolume());
     }
 
     @Test

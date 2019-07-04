@@ -7,7 +7,7 @@ public class Glass implements IGlass {
     private final int capacity;
     private int remainingVolume;
 
-    public Glass(final int capacity){
+    public Glass (final int capacity){
         this.capacity = capacity;
         this.remainingVolume = capacity;
     }
@@ -18,6 +18,18 @@ public class Glass implements IGlass {
 
     public int getRemainingVolume() {
         return this.remainingVolume;
+    }
+
+    public int getFilledVolume(){
+        return this.capacity - this.remainingVolume;
+    }
+
+    @Override
+    public String toString() {
+        return "Glass{" +
+                "capacity=" + capacity +
+                ", remainingVolume=" + remainingVolume +
+                '}';
     }
 
     public int getCapacity() {

@@ -7,5 +7,6 @@ public interface IGlass {
     boolean isFull();
     void addLiquid(int volume);
     int getRemainingVolume();
+    int getFilledVolume();
     int getCapacity();
 }
