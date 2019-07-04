@@ -1,9 +1,11 @@
 package com.plexus.glass;
 
+import com.plexus.exceptions.LiquidOverFlowException;
+
 public interface IGlass {
 
     boolean isFull();
     void addLiquid(int volume);
-    int getVolume();
+    int getRemainingVolume();
     int getCapacity();
 }

@@ -1,16 +1,23 @@
 package com.plexus.glass;
 
+import com.plexus.exceptions.LiquidOverFlowException;
+
 public class Glass implements IGlass {
 
-    private int volume;
-    private int capacity;
+    private final int capacity;
+    private int remainingVolume;
 
-    public boolean isFull() {
-        return capacity == volume ;
+    public Glass(final int capacity){
+        this.capacity = capacity;
+        this.remainingVolume = capacity;
     }
 
-    public int getVolume() {
-        return volume;
+    public boolean isFull() {
+        return remainingVolume == 0 ;
+    }
+
+    public int getRemainingVolume() {
+        return this.remainingVolume;
     }
 
     public int getCapacity() {
@@ -18,6 +25,10 @@ public class Glass implements IGlass {
     }
 
     public void addLiquid(int liquid){
-        this.volume = this.volume + liquid > capacity ? capacity : this.volume + liquid;
+        if (this.remainingVolume >= liquid ){
+            this.remainingVolume -=  liquid;
+        } else {
+            throw new LiquidOverFlowException();
+        }
     }
 }
